@@ -2,12 +2,12 @@
 
 This section steps through the process of using changed block tracking to create incremental backups.
 
-Before getting started with changed block tracking, we recommend that you read the Citrix XenServer Software Developer Kit Guide.
-This document contains information to help you become familiar with developing for XenServer.
+Before getting started with changed block tracking, we recommend that you read the [Citrix Hypervisor Software Developer Kit Guide](https://developer-docs.citrix.com).
+This document contains information to help you become familiar with developing for Citrix Hypervisor.
 
 The examples provided in these steps use the Python binding for the Management API.
 
--  For more information about the individual RPC calls, see the [Citrix XenServer Management API](https://developer-docs.citrix.com)
+-  For more information about the individual RPC calls, see the [Citrix Hypervisor Management API](https://developer-docs.citrix.com)
 
 -  For more detailed information about individual steps in this process, see the following chapters.
 
@@ -27,7 +27,7 @@ Before you start, set up or implement an NBD client at the backup location that 
 For more information, see [Exporting the changed blocks using an NBD client](./exporting-changed-blocks.md).
 
 Enable NBD connections on your network.
-For more information, see [Enabling NBD connections on XenServer](./enabling_nbd.md).
+For more information, see [Enabling NBD connections on Citrix Hypervisor](./enabling_nbd.md).
 
 ## Procedure
 
@@ -53,7 +53,7 @@ Before you can take incremental backups of a VDI using changed block tracking, y
 To set up changed block tracking for a VDI, complete the following steps
 
 1.  Use the Management API to establish a XenAPI session on the
-    XenServer host:
+    Citrix Hypervisor host:
 
         import XenAPI
         import shutil
@@ -145,7 +145,7 @@ To take an incremental backup, complete the following steps:
     If the value of `is_cbt_enabled` is not `true`, you must complete the steps in the *Setting up changed block tracking* section, before taking incremental backups.
     For more information, see [Incremental backup sets](./using-with-vdi.md).
 
-    If changed block tracking is disabled and this is unexpected, this state might indicate that the host or SR has crashed since you last took an incremental backup or that a XenServer user has disabled changed block tracking.
+    If changed block tracking is disabled and this is unexpected, this state might indicate that the host or SR has crashed since you last took an incremental backup or that a Citrix Hypervisor user has disabled changed block tracking.
 
 1.  Take a snapshot of the VDI:
 
@@ -226,7 +226,7 @@ Use this coalesced VDI to restore or import backed up data.
         -  If the bitmap indicates that the block has not changed, read the block data from the base VDI and append that data to the coalesced VDI.
 
     1.  Use the coalesced VDI as the base VDI for the next iteration of this step.
-        Or, if you have reached the target snapshot level, use this coalesced VDI in the next step to restore a VDI in XenServer.
+        Or, if you have reached the target snapshot level, use this coalesced VDI in the next step to restore a VDI in Citrix Hypervisor.
 
     For more information, see [Coalescing changed blocks onto a base VDI](./coalescing-blocks.md).
 
@@ -280,7 +280,7 @@ Use this coalesced VDI to restore or import backed up data.
         You can extract a reference to this new VM from the result of the task.
         For more information, see the [samples on GitHub](https://github.com/xenserver/xs-cbt-samples/blob/master/cbt_vm_metadata_import.py).
 
-1.  Import the coalesced VDI snapshot to the XenServer host at the UUID of the VDI you want to replace with the restored version.
+1.  Import the coalesced VDI snapshot to the Citrix Hypervisor host at the UUID of the VDI you want to replace with the restored version.
     This VDI can be either an existing VDI or the VDI created in the previous step.
 
     In Python, you can use the following code:
