@@ -70,7 +70,7 @@ You might see the following errors when using this call:
 
     Check that the type of the VDI is not `cbt_metadata`.
     You can use the `get_type` call to find out the type of a VDI.
-    If your VDI is `cbt_metadata`, you cannot access it as a network block device. For more information, see [Checking the type of a VDI or VDI snapshot](./deleting-snapshots.md).
+    If your VDI is `cbt_metadata`, you cannot access it as a network block device. For more information, see [Checking the type of a VDI or VDI snapshot](./deleting-snapshot.md).
 
 **An empty list of connection details**:
 

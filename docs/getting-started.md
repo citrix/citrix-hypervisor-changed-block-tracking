@@ -27,7 +27,7 @@ Before you start, set up or implement an NBD client at the backup location that 
 For more information, see [Exporting the changed blocks using an NBD client](./exporting-changed-blocks.md).
 
 Enable NBD connections on your network.
-For more information, see [Enabling NBD connections on Citrix Hypervisor](./enabling_nbd.md).
+For more information, see [Enabling NBD connections on Citrix Hypervisor](./enabling-nbd.md).
 
 ## Procedure
 
@@ -129,7 +129,7 @@ To set up changed block tracking for a VDI, complete the following steps
 
     This frees up space on the host or SR.
 
-    For more information, see [Deleting VDI snapshot data and retaining the snapshot metadata](./deleting_snapshot.md).
+    For more information, see [Deleting VDI snapshot data and retaining the snapshot metadata](./deleting-snapshot.md).
 
 ### Taking incremental backups
 
@@ -164,7 +164,7 @@ To take an incremental backup, complete the following steps:
 
     This call returns a list of connection details that are specific to this session.
     Each set of connection details in the list contains a dictionary of the parameters required for an NBD client connection.
-    For more information, see [Getting NBD connection information for a VDI](./export-changed-blocks.md).
+    For more information, see [Getting NBD connection information for a VDI](./exporting-changed-blocks.md).
 
     > **Note**
     >
@@ -202,7 +202,7 @@ To take an incremental backup, complete the following steps:
 
     This frees up space on the host or SR.
 
-    For more information, see [Deleting VDI snapshot data and retaining the snapshot metadata](./deleting-snapshos.md).
+    For more information, see [Deleting VDI snapshot data and retaining the snapshot metadata](./deleting-snapshot.md).
 
 ### Restoring a VDI from exported changed block data
 
