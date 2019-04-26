@@ -1,8 +1,8 @@
 # Coalescing changed blocks onto a base VDI
 
-When using backed up data to restore the state of a VDI, you must import a full VDI into XenServer.
+When using backed up data to restore the state of a VDI, you must import a full VDI into Citrix Hypervisor.
 You cannot import only the sets of changed blocks.
-To import incremental backups created with changed block tracking data into XenServer, you must first use these incremental backups to create a full VDI.
+To import incremental backups created with changed block tracking data into Citrix Hypervisor, you must first use these incremental backups to create a full VDI.
 
 A set of incremental backups created with changed block tracking can be used to create a full VDI whose data is identical to the source VDI at the time an incremental backup was taken.
 
@@ -18,7 +18,7 @@ For example, you have a set of incremental backups that comprises:
 
 ![A base snapshot made of 8 blocks. A first backup that has changes in blocks 3, 6, and 7. A second backup that has changes in blocks 1, 5, 6, and 8.](media/history.png)
 
-If you want to restore a VDI on XenServer to the state it was at when backup 2 was taken, you must create a VDI that takes blocks from the base snapshot, changed blocks from backup 1, and changed blocks from backup 2.
+If you want to restore a VDI on Citrix Hypervisor to the state it was at when backup 2 was taken, you must create a VDI that takes blocks from the base snapshot, changed blocks from backup 1, and changed blocks from backup 2.
 To do this, you can apply each set of changed blocks in sequence to the base snapshot of the VDI.
 
 First build up a coalesced VDI by taking unchanged blocks from the base snapshot and changed blocks from those exported at backup 1.
@@ -36,7 +36,7 @@ Call this coalesced VDI "VDI 2".
 
 ![A VDI coalesced from the base and from backup 1 and backup 2. Blocks 2 and 4 are from the base snapshot. Blocks 3 and 7 are from backup 1. Blocks 1, 5, 6, and 8 are from backup 2.](media/vdi2.png)
 
-This coalesced VDI, VDI 2, can be used to restore the state of the VDI on XenServer at the time that a snapshot was taken for backup 2.
+This coalesced VDI, VDI 2, can be used to restore the state of the VDI on Citrix Hypervisor at the time that a snapshot was taken for backup 2.
 
 When creating a coalesced VDI, ensure that you work with your VDIs and changed blocks as binary.
 

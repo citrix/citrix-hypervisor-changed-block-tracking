@@ -7,14 +7,14 @@ The changed block tracking capability can be enabled and disabled for individual
 When you enable changed block tracking for a VDI you start a new set of incremental backups for that VDI.
 The first action you must take when starting a set of incremental backups is to create a baseline snapshot and to backup its full data.
 
-After you disable changed block tracking, or after changed block tracking is disabled by XenServer or a user, no further incremental backups can be added to this set.
+After you disable changed block tracking, or after changed block tracking is disabled by Citrix Hypervisor or a user, no further incremental backups can be added to this set.
 If changed block tracking is enabled again, you must take another baseline snapshot and start a new set of incremental backups.
 
 You cannot compare VDI snapshots taken as part of one set of incremental backups with VDI snapshots taken as part of a different set of incremental backups.
 If you attempt to list the changed blocks between snapshots that are part of different sets, you get an error with the message `Source and target VDI are unrelated`.
 
 You can use some or all of the data in previous incremental backup sets to create VDIs that you can use to restore the state of a VDI.
-For more information, see [Coalescing changed blocks onto a base VDI](./coalescing-block.md).
+For more information, see [Coalescing changed blocks onto a base VDI](./coalescing-blocks.md).
 
 ## Enabling changed block tracking for a VDI
 
@@ -72,7 +72,7 @@ You might see the following errors when using this call:
     Check that the type of the VDI is `system` or `user`.
     You can use the `get_type` call to find out the type of a VDI.
     If your VDI is an incompatible type, you cannot enable changed block tracking.
-    For more information, see [Checking the type of a VDI or VDI snapshot](./deleting-snapshots.md).
+    For more information, see [Checking the type of a VDI or VDI snapshot](./deleting-snapshot.md).
 
 **VDI\_ON\_BOOT\_MODE\_INCOMPATIBLE\_WITH\_OPERATION**:
 

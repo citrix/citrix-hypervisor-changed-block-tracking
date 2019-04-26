@@ -1,9 +1,9 @@
-# Citrix XenServer Changed Block Tracking Guide
+# Citrix Hypervisor Changed Block Tracking Guide
 
-Changed block tracking provides a set of features and APIs that enable you to develop fast and space-efficient incremental backup solutions for XenServer.
+Changed block tracking provides a set of features and APIs that enable you to develop fast and space-efficient incremental backup solutions for Citrix Hypervisor.
 
-Changed block tracking is available only to customers with XenServer Enterprise Edition.
-If a customer without Enterprise Edition attempts to use an incremental backup solution for XenServer that uses changed block tracking, they are prevented from enabling changed block tracking on new VDIs.
+Changed block tracking is available only to customers with Citrix Hypervisor Premium Edition.
+If a customer without Premium Edition attempts to use an incremental backup solution for Citrix Hypervisor that uses changed block tracking, they are prevented from enabling changed block tracking on new VDIs.
 However, if the customer has existing VDIs with changed block tracking enabled, they can still perform other changed block tracking actions on these VDIs.
 
 ## How changed block tracking works
@@ -34,6 +34,6 @@ For example, it can take around 10 hours to export a backup of a full 1 TB VDI.
 If, after a week, 5% of the blocks in that VDI have changed, exporting the backup takes 5% of the time - 30 minutes.
 A backup taken after a day has even fewer changed blocks and takes even less time to export.
 
-The savings in time and space that changed block tracking provides makes it a preferable backup solution for customers using XenServer.
-The simple API that XenServer exposes makes it easy for you to develop an incremental backup solution that delivers these benefits to the end user.
+The savings in time and space that changed block tracking provides makes it a preferable backup solution for customers using Citrix Hypervisor.
+The simple API that Citrix Hypervisor exposes makes it easy for you to develop an incremental backup solution that delivers these benefits to the end user.
 You can use this API through the language-agnostic remote procedure calls (RPCs) or take advantage of the language bindings provided for C, C\#, Java, Python and PowerShell.

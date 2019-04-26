@@ -1,7 +1,7 @@
-# Enabling NBD connections on XenServer
+# Enabling NBD connections on Citrix Hypervisor
 
-XenServer acts as an NBD server and makes VDI snapshots available over NBD connections.
-However, to connect to XenServer over an NBD connection, you must enable NBD connections for one or more networks.
+Citrix Hypervisor acts as an NBD server and makes VDI snapshots available over NBD connections.
+However, to connect to Citrix Hypervisor over an NBD connection, you must enable NBD connections for one or more networks.
 
 > **Important**
 >
@@ -10,13 +10,13 @@ However, to connect to XenServer over an NBD connection, you must enable NBD con
 By default, NBD connections are not enabled on any networks.
 
 > **Note**
-> Networks associated with a XenServer pool that have NBD connections enabled must either all have the `nbd` purpose or all have the `insecure_nbd` purpose. You cannot have a mix of normal NBD networks (`FORCEDTLS`) and insecure NBD networks (`NOTLS`).
+> Networks associated with a Citrix Hypervisor pool that have NBD connections enabled must either all have the `nbd` purpose or all have the `insecure_nbd` purpose. You cannot have a mix of normal NBD networks (`FORCEDTLS`) and insecure NBD networks (`NOTLS`).
 > To switch the purpose of all networks, you must first disable normal NBD connections on all networks before enabling either normal or insecure NBD connections on any networks.
 
 ## Enabling an NBD connection for a network (`FORCEDTLS` mode)
 
 We recommend that you use TLS in your NBD connections.
-When NBD connections with TLS are enabled, any NBD clients that attempt to connect to XenServer must use TLSv1.2.
+When NBD connections with TLS are enabled, any NBD clients that attempt to connect to Citrix Hypervisor must use TLSv1.2.
 The NBD server runs in `FORCEDTLS` mode with the "fixed newstyle" NBD handshake.
 For more information, see the [NBD protocol documentation](https://sourceforge.net/p/nbd/code/ci/master/tree/doc/proto.md).
 
@@ -47,7 +47,7 @@ xe network-param-add param-name=purpose param-key=nbd uuid=<network-uuid>
 
 We recommend that you do not enable insecure NBD connections.
 Instead use `FORCEDTLS` NBD connections.
-However, the ability to connect to the XenServer over an insecure NBD connection is provided for development and testing with the NBD server operating in `NOTLS` mode as described in the NBD protocol.
+However, the ability to connect to the Citrix Hypervisor over an insecure NBD connection is provided for development and testing with the NBD server operating in `NOTLS` mode as described in the NBD protocol.
 
 To enable insecure NBD connections, use the `purpose` parameter of the network.
 Set this parameter to include the value `insecure_nbd`.

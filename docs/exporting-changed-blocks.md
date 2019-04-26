@@ -1,11 +1,11 @@
 # Export changed blocks over a network block device connection
 
-XenServer runs an NBD server on the host that can make VDI snapshots accessible as a network block device to NBD clients.
+Citrix Hypervisor runs an NBD server on the host that can make VDI snapshots accessible as a network block device to NBD clients.
 The NBD server listens on port 10809 and uses the "fixed newstyle" NBD protocol.
 For more information, see [the NBD protocol documentation](https://sourceforge.net/p/nbd/code/ci/master/tree/doc/proto.md).
 
-NBD connections must be enabled for one or more of the XenServer networks before you can export the changed blocks over NBD.
-For more information, see [Enabling NBD connections on XenServer](./enabling-nbd.md).
+NBD connections must be enabled for one or more of the Citrix Hypervisor networks before you can export the changed blocks over NBD.
+For more information, see [Enabling NBD connections on Citrix Hypervisor](./enabling-nbd.md).
 
 ## Getting NBD connection information for a VDI
 
@@ -22,12 +22,12 @@ Each set of connection details in the list is provided as a dictionary containin
 
 `port`:
 
--  The TCP port to connect to the XenServer NBD server on.
+-  The TCP port to connect to the Citrix Hypervisor NBD server on.
 
 `cert`:
 
 -  The TLS certificate used by the NBD server encoded as a string in PEM format.
-    When XenServer is configured to enable NBD connections in `FORCEDTLS` mode, the server presents this certificate during the TLS handshake and the NBD client must verify the server TLS certificate against this TLS certificate.
+    When Citrix Hypervisor is configured to enable NBD connections in `FORCEDTLS` mode, the server presents this certificate during the TLS handshake and the NBD client must verify the server TLS certificate against this TLS certificate.
     For more information, see "Verifying TLS certificates for NBD connections".
 
 `exportname`:
@@ -39,7 +39,7 @@ Each set of connection details in the list is provided as a dictionary containin
     The XenAPI session must remain logged in for this token to continue to be valid.
     Because the token contains a reference to a XenAPI session, you must handle the token securely to prevent the session being hijacked.
 
-    The format of this token is not guaranteed and might change in future releases of XenServer.
+    The format of this token is not guaranteed and might change in future releases of Citrix Hypervisor.
     Treat the export name as an opaque token.
 
 `subject`:
@@ -70,24 +70,24 @@ You might see the following errors when using this call:
 
     Check that the type of the VDI is not `cbt_metadata`.
     You can use the `get_type` call to find out the type of a VDI.
-    If your VDI is `cbt_metadata`, you cannot access it as a network block device. For more information, see [Checking the type of a VDI or VDI snapshot](./deleting-snapshots.md).
+    If your VDI is `cbt_metadata`, you cannot access it as a network block device. For more information, see [Checking the type of a VDI or VDI snapshot](./deleting-snapshot.md).
 
 **An empty list of connection details**:
 
 -  The VDI cannot be accessed.
 
-    Check that the XenServer host that runs the NBD server has a PIF with an IP address.
+    Check that the Citrix Hypervisor host that runs the NBD server has a PIF with an IP address.
 
     Check that you have at least one network in your pool with the purpose `nbd` or `insecure_nbd`.
-    For more information, see [Enabling NBD connections on XenServer](./enabling-nbd.md).
+    For more information, see [Enabling NBD connections on Citrix Hypervisor](./enabling-nbd.md).
 
     Check that storage repository the VDI is on is attached to a host that is connected to one of the NBD-enabled networks.
 
 ## Exporting the changed blocks using an NBD client
 
-An NBD client running in the backup location can connect to the NBD server that runs on the XenServer host and access the VDI snapshot by using the provided connection details.
+An NBD client running in the backup location can connect to the NBD server that runs on the Citrix Hypervisor host and access the VDI snapshot by using the provided connection details.
 
-The NBD client that you use to connect to the XenServer NBD server can be any implementation that supports the “fixed newstyle” version of the NBD protocol.
+The NBD client that you use to connect to the Citrix Hypervisor NBD server can be any implementation that supports the “fixed newstyle” version of the NBD protocol.
 
 When choosing or developing an NBD client implementation, consider the following requirements:
 
@@ -104,12 +104,12 @@ When choosing or developing an NBD client implementation, consider the following
 >
 > If you are using the Linux upstream NBD client, a minimum version of 3.15 is required to support TLS.
 
-After the NBD client has made a connection to the XenServer host and accessed the VDI snapshot, you can use the bitmap provided by the `list_changed_blocks` call to select which blocks to read.
+After the NBD client has made a connection to the Citrix Hypervisor host and accessed the VDI snapshot, you can use the bitmap provided by the `list_changed_blocks` call to select which blocks to read.
 For more information, see [Getting the list of blocks that changed between VDIs](./list-changed-blocks.md).
 
 > **Note**
 >
-> XenServer supports up to 16 concurrent NBD connections.
+> Citrix Hypervisor supports up to 16 concurrent NBD connections.
 
 ### Verifying TLS certificates for NBD connections
 
