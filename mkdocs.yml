@@ -18,9 +18,7 @@ theme:
   palette:
     primary: white
     accent: blue
-  font:
-    text: Roboto
-    code: Roboto Mono
+  font: false
   favicon: /media/favicon.ico
   logo: https://developer-docs.citrix.com/_static/Citrix_Logo_Black.png
   
@@ -38,7 +36,8 @@ extra:
 markdown_extensions:
   - admonition
   - codehilite
-  - toc
+  - toc:
+      permalink: true
   - footnotes
   - meta
 
