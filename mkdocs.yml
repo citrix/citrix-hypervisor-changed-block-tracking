@@ -8,7 +8,7 @@ copyright: '&copy; 1999-2020 Citrix Systems, Inc. All rights reserved. '
 
 # Feedback
 
-issues_uri: https://github.com/citrix/citrix-hypervisor-changed-block-tracking/issues/new
+issues_uri: https://github.com/citrix/devdocs-issue-collector/issues/new
 assignees_uri:
   - katshann
 labels_uri:
